@@ -1,0 +1,3 @@
+[submodule "cpp/gsplat/third_party/glm"]
+	path = cpp/gsplat/third_party/glm
+	url = https://github.com/g-truc/glm.git
