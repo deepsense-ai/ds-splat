@@ -1,6 +1,6 @@
 # 🖌️ deepsense.ai 3D Gaussian Splatting
 
-Fastest open-source implementation (MIT License) of 3D Gaussian Splatting rasterizer function as forward/backward 
+Fastest open-source implementation (Apache 2.0 License) of 3D Gaussian Splatting rasterizer function as forward/backward 
 CUDA kernels. Forward call is our original work and our backward code is based on 
 [nerfstudio's gsplat](https://github.com/nerfstudio-project/gsplat) implementation.
 We are using the same api as Vanilla [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting), 
