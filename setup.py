@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from setuptools import find_packages, setup, Extension
+from setuptools import find_packages, setup
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
+from __version__ import __version__
 
 
 def get_cuda_extension():
@@ -20,11 +21,12 @@ def get_cuda_extension():
         extra_compile_args=extra_compile_args,
     )
 
+
 setup(
     name="ds_splat",
     author="deepsense.ai",
     author_email="contact@deepsense.ai",
-    version="0.1.1",
+    version=__version__,
     description="A CUDA-based gaussian splatting rasterizer extension for PyTorch.",
     readme="README.md",
     python_requires=">=3.7",
