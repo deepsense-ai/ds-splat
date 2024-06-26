@@ -6,7 +6,7 @@ Nerfstudio gsplat is available under the Apache 2.0 License, which you can find 
 
 The rest of the project, including Forward CUDA calls, is the original work of the deepsense.ai team.
 
-Copyright (c) 2024 deepsense.ai
+Copyright (c) 2024 deepsense.ai sp. z o.o.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
