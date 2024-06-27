@@ -10,7 +10,7 @@ so it is very easy to replace original render calls simply by swapping the impor
 ![Training Process](assets/training_640_5fps.gif)
 
 ## Table of Contents
-- [⚡ Get Fastest open-source forward/backward kernels](#-get-fastest-open-source-forwardbackward-kernels)
+- [⚡ Get fastest open-source forward/backward kernels](#-get-fastest-open-source-forwardbackward-kernels)
   - [📦 Get From PyPI](#-get-from-pypi)
   - [💡 Integrated into Gaussian Splatting Lighting](#-integrated-into-gaussian-splatting-lighting)
 - [🔧 Install from repository](#-install-from-repository)
@@ -19,7 +19,7 @@ so it is very easy to replace original render calls simply by swapping the impor
 - [🔄 How to switch to open-source KNN](#-how-to-switch-to-open-source-knn)
 - [📊 Benchmarks](#-benchmarks)
 
-## ⚡ Get Fastest open-source forward/backward kernels
+## ⚡ Get fastest open-source forward/backward kernels
 
 Fastest open-source and easy to use replacement for these who are using non-commercial friendly Vanilla
 [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting).
@@ -37,13 +37,13 @@ with deepsense.ai open-source kernels.
 
 In your environment, simply install:
 ```bash
-pip install ds_splat
+pip install ds-splat
 ```
 
 You are good to go just by swapping imports:
 ```diff
 - from diff_gaussian_rasterization import GaussianRasterizationSettings, GaussianRasterizer
-+ from ds_splat import GaussianRasterizationSettings, GaussianRasterizer
++ from ds-splat import GaussianRasterizationSettings, GaussianRasterizer
 ```
 
 After swapping to our code, you will keep 3D Gaussian Splatting functionality (backward and forward passes) and you 
@@ -54,13 +54,13 @@ will use open-source code. If you also want to use open-source code for the KNN 
 If you are rather starting project from scratch and are interested in end-to-end environment, we recommend to check
 our integration into [gaussian-splatting-lighting](https://github.com/yzslab/gaussian-splatting-lightning) repository.
 Gaussian splatting lighting repository is under MIT License, but submodules like Vanilla's forward/backward kernels or 
-KNN implementation has non-commercial friendly license. You can use deepsense ds_splat as a backend, and this way using 
+KNN implementation has non-commercial friendly license. You can use deepsense ds-splat as a backend, and this way using 
 fastest open-source forward/backward kernel calls.
 
 
 ## 🔧 Install from repository
 
-Instead of installing from PyPI, you can install ds_splat package directly from this repository.
+Instead of installing from PyPI, you can install ds-splat package directly from this repository.
 
 ### 🐍 Using Python Extension
 
