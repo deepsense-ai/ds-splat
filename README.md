@@ -35,7 +35,7 @@ Follow this step, if you are already using Vanilla's [graphdeco-inria 3D Gaussia
 in your project and you want to replace forward/backward kernels
 with deepsense.ai open-source kernels.
 
-In your environment, simply install:
+Make sure CUDA compiler is installed in your environment and simply install:
 ```bash
 pip install ds-splat
 ```
