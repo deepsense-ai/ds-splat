@@ -23,7 +23,7 @@ def get_cuda_extension():
 
 
 setup(
-    name="ds_splat",
+    name="ds-splat",
     ext_modules=[get_cuda_extension()],
        cmdclass={"build_ext": BuildExtension},
     packages=find_packages(),

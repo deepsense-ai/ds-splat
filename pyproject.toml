@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 
 [project]
-name = "ds_splat"
+name = "ds-splat"
 version = "0.0.0"
 description = "A CUDA-based gaussian splatting rasterizer extension for PyTorch."
 readme = "README.md"
