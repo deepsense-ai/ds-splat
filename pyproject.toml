@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ds-splat"
+version = "0.0.1"
 description = "A CUDA-based gaussian splatting rasterizer extension for PyTorch."
 readme = "README.md"
 authors = [{ name = "deepsense.ai", email = "contact@deepsense.ai" }]
@@ -32,7 +33,7 @@ major_on_zero = true
 allow_zero_version = true
 no_git_verify = false
 tag_format = "v{version}"
-version_variables = ["setup.py:__version__"]
+version_toml = ["pyproject.toml:project.version"]
 build_command = "export CUDA_HOME='/usr' && pip install build && python -m build --sdist"
 
 [tool.semantic_release.branches.main]
