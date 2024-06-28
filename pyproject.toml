@@ -34,7 +34,7 @@ allow_zero_version = true
 no_git_verify = false
 tag_format = "v{version}"
 version_variables = ["setup.py:__version__"]
-build_command = "CUDA_HOME='/usr' pip install build && python -m build --sdist"
+build_command = "export CUDA_HOME='/usr' && pip install build && python -m build --sdist"
 
 [tool.semantic_release.branches.main]
 match = "(main|master)"
