@@ -3,7 +3,7 @@
 from setuptools import find_packages, setup
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
-__version__ = "0.0.0"
+__version__ = "0.0.1"
 
 def get_cuda_extension():
     extra_compile_args = {"cxx": ["-O3"], "nvcc": ["-O3", "--use_fast_math"]}
