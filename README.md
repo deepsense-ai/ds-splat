@@ -43,7 +43,7 @@ pip install ds-splat
 You are good to go just by swapping imports:
 ```diff
 - from diff_gaussian_rasterization import GaussianRasterizationSettings, GaussianRasterizer
-+ from ds-splat import GaussianRasterizationSettings, GaussianRasterizer
++ from ds_splat import GaussianRasterizationSettings, GaussianRasterizer
 ```
 
 After swapping to our code, you will keep 3D Gaussian Splatting functionality (backward and forward passes) and you 
