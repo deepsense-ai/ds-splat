@@ -7,13 +7,13 @@ build-backend = "setuptools.build_meta"
 name = "ds-splat"
 version = "0.0.1"
 description = "A CUDA-based gaussian splatting rasterizer extension for PyTorch."
+license = "Apache-2.0"
 readme = "README.md"
 authors = [{ name = "deepsense.ai", email = "contact@deepsense.ai" }]
 requires-python = ">=3.7"
 keywords = ["pytorch", "cuda", "rasterizer", "deep learning"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
