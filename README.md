@@ -1,16 +1,16 @@
 # 🖌️ deepsense.ai 3D Gaussian Splatting
 
-Fastest open-source implementation (Apache 2.0 License) of 3D Gaussian Splatting rasterizer function as forward/backward 
-CUDA kernels. Forward call is our original work and our backward code is based on 
+Fast, minimalistic and open-source implementation (Apache 2.0 License) of 3D Gaussian Splatting rasterizer function as 
+forward/backward CUDA kernels. Forward call is our original work and our backward code is based on 
 [nerfstudio's gsplat](https://github.com/nerfstudio-project/gsplat) implementation.
-We are using the same api as Vanilla [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting), 
+We are using the same api as vanilla [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting), 
 so it is very easy to replace original render calls simply by swapping the import.
 
 
 ![Training Process](assets/training_640_5fps.gif)
 
 ## Table of Contents
-- [⚡ Get fastest open-source forward/backward kernels](#-get-fastest-open-source-forwardbackward-kernels)
+- [⚡ Get fast open-source forward/backward kernels](#-get-fast-open-source-forwardbackward-kernels)
   - [📦 Get From PyPI](#-get-from-pypi)
   - [💡 Integrated into Gaussian Splatting Lighting](#-integrated-into-gaussian-splatting-lighting)
 - [🔧 Install from repository](#-install-from-repository)
@@ -19,19 +19,19 @@ so it is very easy to replace original render calls simply by swapping the impor
 - [🔄 How to switch to open-source KNN](#-how-to-switch-to-open-source-knn)
 - [📊 Benchmarks](#-benchmarks)
 
-## ⚡ Get fastest open-source forward/backward kernels
+## ⚡ Get fast open-source forward/backward kernels
 
-Fastest open-source and easy to use replacement for these who are using non-commercial friendly Vanilla
+Fast open-source and easy to use replacement for these who are using non-commercial friendly vanilla
 [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting).
 
 - Forward and backward CUDA calls
-- Fastest open-source
-- Easy to integrate
-- Thrust and Torch I/O API
+- Fast, minimalistic and open-source
+- Easy to integrate, compatible with vanilla [graphdeco-inria](https://github.com/graphdeco-inria/gaussian-splatting) API
+- Native CPP (Thrust) and Torch I/O API
 
 ### 📦 Get From PyPI
 
-Follow this step, if you are already using Vanilla's [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting)
+Follow this step, if you are already using vanilla's [graphdeco-inria 3D Gaussian Splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting)
 in your project and you want to replace forward/backward kernels
 with deepsense.ai open-source kernels.
 
@@ -43,7 +43,7 @@ pip install ds-splat
 You are good to go just by swapping imports:
 ```diff
 - from diff_gaussian_rasterization import GaussianRasterizationSettings, GaussianRasterizer
-+ from ds_splat import GaussianRasterizationSettings, GaussianRasterizer
++ from ds-splat import GaussianRasterizationSettings, GaussianRasterizer
 ```
 
 After swapping to our code, you will keep 3D Gaussian Splatting functionality (backward and forward passes) and you 
@@ -53,9 +53,9 @@ will use open-source code. If you also want to use open-source code for the KNN 
 
 If you are rather starting project from scratch and are interested in end-to-end environment, we recommend to check
 our integration into [gaussian-splatting-lighting](https://github.com/yzslab/gaussian-splatting-lightning) repository.
-Gaussian splatting lighting repository is under MIT License, but submodules like Vanilla's forward/backward kernels or 
+Gaussian splatting lighting repository is under MIT License, but submodules like vanilla's forward/backward kernels or 
 KNN implementation has non-commercial friendly license. You can use deepsense ds-splat as a backend, and this way using 
-fastest open-source forward/backward kernel calls.
+fast open-source forward/backward kernel calls.
 
 
 ## 🔧 Install from repository
@@ -192,7 +192,8 @@ submodule (distCUDA2 method) and now it is open source!
 
 We have conducted a series of benchmarks, comparing deepsense implementation inference runtime to vanilla implementation
 [graphdeco-inria 3D gaussian splatting implementation](https://github.com/graphdeco-inria/gaussian-splatting)
-and to [nerfstudio's gsplat](https://github.com/nerfstudio-project/gsplat) implementation.
+and to [nerfstudio's gsplat](https://github.com/nerfstudio-project/gsplat) implementation (version 0.1.12). Tests were conducted in the
+[gaussian-splatting-lighting](https://github.com/yzslab/gaussian-splatting-lightning) environment comparing the following implementations: nerfstudio's gsplat, vanilla and deepsense (ours).
 
 
 Below plots present inference time in ms measured for 120 frames as fly through a scene with zooming out to capture all
@@ -202,11 +203,14 @@ with an NVIDIA 3090 GPU.
 ![Inference time in ms. measured for 120 frames as fly through a scene with zooming out to capture all gaussians. 6.1M Gaussians rendered in 1920x1080 with NVIDIA 4070 Laptop GPU.](assets/bicycle_1920x1080_4070.png)
 ![Inference time in ms. measured for 120 frames as fly through a scene with zooming out to capture all gaussians. 5.8M Gaussians rendered in 3840x2160 with NVIDIA 3090 GPU.](assets/garden_3840x2160_3090.png)
 
+⚠️ The version of [nerfstudio's gsplat](https://github.com/nerfstudio-project/gsplat) we have used in this comparison is (0.1.12) and it is compatible with 
+[gaussian-splatting-lighting](https://github.com/yzslab/gaussian-splatting-lightning) repository. The newer version of [nerfstudio's gsplat](https://github.com/nerfstudio-project/gsplat) (1.0.0) is not yet compatible
+with gaussian-splatting-lighting, check [this PR](https://github.com/yzslab/gaussian-splatting-lightning/issues/36).
 
 For trained scenes, we have also compared PSNR (Peak Signal-to-Noise Ratio) for deepsense and gsplat methods to 
-Vanilla as ground truth. Using Vanilla's inria implementation, we rendered images when flying through a scene, 
+vanilla as ground truth. Using vanilla's inria implementation, we rendered images when flying through a scene, 
 treating them as ground truth. For deepsense and gsplat implementations, we rendered scenes from the same camera 
-positions and compared them to Vanilla. This test shows how close our/gsplat implementation is to Vanilla's. Some 
+positions and compared them to vanilla. This test shows how close our/gsplat implementation is to vanilla's. Some 
 details are implementation-specific and result in slightly different outcomes, but both methods have very good PSNR in 
 this regard. Higher PSNR is better.
 
